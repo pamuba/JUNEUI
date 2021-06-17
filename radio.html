@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getValus(){
+           document.getElementById("result").innerHTML = ""
+           var r = document.getElementsByTagName('input');
+           for (let i = 0; i < r.length-1; i++) {
+               if(r[i].checked){
+                   document.getElementById("result").innerHTML += (r[i].value).toUpperCase() + " "
+               }
+               
+           }
+        }
+    </script>
+</head>
+<body style="font-family:Verdana, Geneva, Tahoma, sans-serif">
+    FRUITS:<br>
+    <input type="radio" name="fruits" value="mango">Mango</input><br>
+    <input type="radio" name="fruits" value="apple">Apple</input><br>
+    <input type="radio" name="fruits" value="grapes">Grapes</input><br>
+    <input type="radio" name="fruits" value="orange">Orange</input><br>
+
+    DRINKS:<br>
+    <input type="radio" name="drinks" value="coke">Coke</input><br>
+    <input type="radio" name="drinks" value="pepsi">Pepsi</input><br>
+    <input type="radio" name="drinks" value="fanta">Fanta</input><br>
+    <input type="radio" name="drinks" value="sprite">Sprite</input><br>
+
+    <br>
+    <hr>
+    <input type="button" onclick="getValus()" value="Click" />
+    <br>
+    <label id="result"></label>
+</body>
+</html>
