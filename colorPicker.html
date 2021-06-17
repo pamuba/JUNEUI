@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <p id="p">Choose your Color</p>
+    <div>
+        <input type="color" id="head" name="head" value="#38F106">
+        <label for="head">Select Color</label>
+    </div>
+    <div>
+        <input type="color" id="body" name="body" value="#FF5733">
+        <label for="body">Select Color</label>
+        <label id="dis">THE LABEL</label>
+    </div>
+    <script>
+        var head = document.getElementById("head");
+        head.addEventListener('change', function(){
+           let p = document.getElementById("p"); 
+           p.style.color = head.value;
+        });
+        var body = document.getElementById("body");
+        body.addEventListener('change', function(){
+            document.getElementById("dis").innerHTML = body.value;
+            document.getElementById("dis").style.color = body.value;
+        })
+    </script>
+</body>
+</html>
