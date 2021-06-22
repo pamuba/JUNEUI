@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="lst">Choose a Fruit:</label>
+    <input type="text" id="lst" list="fruits">
+    <datalist id="fruits">
+        <option value="Grapes"></option>
+        <option value="Mango"></option>
+        <option value="Apple"></option>
+        <option value="Guava"></option>
+        <option value="Pineapple"></option>
+    </datalist>
+    <label id="result"></label>
+    <script>
+        let val = document.getElementById("lst");
+        val.addEventListener('change', ()=>{
+            document.getElementById("result").innerHTML = val.value;
+        })
+    </script>
+</body>
+</html>
