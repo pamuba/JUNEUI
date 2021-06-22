@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        function dragstart_handler(ev){
+            //attach the p1 element to the data transfer object
+            // console.log(ev)
+            ev.dataTransfer.setData("text/plain",ev.target.id)
+            ev.dataTransfer.dropEffect = "move"
+        }
+
+        window.addEventListener('DOMContentLoaded', ()=>{
+            const element = document.getElementById("p1");
+            element.addEventListener("dragstart", dragstart_handler)
+        })
+
+        function dragover_handler(ev){
+            ev.preventDefault();
+            ev.dataTransfer.dropEffect = "move"
+        }
+
+        function drop_handler(ev){
+            const data = ev.dataTransfer.getData("text/plain");
+            ev.target.appendChild(document.getElementById(data))
+        }
+    </script>
+</head>
+<body style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+    <p style="border: 1px solid red;" draggable="true" id="p1">This Paragraph is Draggable</p>
+    <p id="target" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">This Paragraph is the Target</p>
+</body>
+</html>

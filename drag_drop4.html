@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        .drop-area {
+            width: 100px;
+            height: 25px;
+            border: 1px solid #999;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        #thumbnail img {
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+        }
+
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="file" style="display:none" id="upload-image" multiple="multiple"></input>
+    <div id="upload" class="drop-area">
+        Upload File
+    </div>
+    <div id="thumbnail"></div>
+    <script>
+        //jQuery(function ($) {
+            var fileDiv = document.getElementById("upload");
+            var fileInput = document.getElementById("upload-image");
+            console.log(fileInput);
+            fileInput.addEventListener("change", function (e) {
+                var files = this.files
+                showThumbnail(files)
+            }, false)
+
+            fileDiv.addEventListener("click", function (e) {
+                $(fileInput).show().focus().click().hide();
+                e.preventDefault();
+            }, false)
+
+            fileDiv.addEventListener("dragenter", function (e) {
+                e.stopPropagation();
+                e.preventDefault();
+            }, false);
+
+            fileDiv.addEventListener("dragover", function (e) {
+                e.stopPropagation(); //stop bubbling
+                e.preventDefault();
+            }, false);
+
+            fileDiv.addEventListener("drop", function (e) {
+                e.stopPropagation();
+                e.preventDefault();
+
+                var dt = e.dataTransfer;
+                var files = dt.files;
+
+                showThumbnail(files)
+            }, false);
+
+            function showThumbnail(files) {
+                for (var i = 0; i < files.length; i++) {
+                    var file = files[i]
+                    var imageType = /image.*/
+                    if (!file.type.match(imageType)) {
+                        console.log("Not an Image");
+                        continue;
+                    }
+
+                    var image = document.createElement("img");
+                    // image.classList.add("")
+                    var thumbnail = document.getElementById("thumbnail");
+                    image.file = file;
+                    thumbnail.appendChild(image)
+
+                    var reader = new FileReader()
+                    reader.onload = (function (aImg) {
+                        return function (e) {
+                            aImg.src = e.target.result;
+                        };
+                    }(image))
+                    var ret = reader.readAsDataURL(file);
+                    var canvas = document.createElement("canvas");
+                    ctx = canvas.getContext("2d");
+                    image.onload = function () {
+                        ctx.drawImage(image, 100, 100)
+                    }
+                }
+            }
+        //});
+    </script>
+</body>
+
+</html>
