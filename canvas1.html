@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" height="500px" width="500px"></canvas>
+
+    <!-- <script>
+        //set the height and width
+        var image = new Image();
+        image.src = "images/cat.jpg";
+        image.alt = "The missing cat image";
+        image.style.width = "200px";
+        image.style.height = "200px";
+        document.body.appendChild(image);
+    </script> -->
+<!-- 
+    <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+
+        var image = new Image();
+        image.src = "images/cat.jpg";
+        image.alt = "The missing cat image";
+
+        image.onload = () => {
+            // ctx.drawImage(image, 10, 10)
+            ctx.drawImage(image, 10,10,200,100);
+        }
+
+    </script> -->
+
+    <img src="images/big.jpg" id="img" />
+
+    <script>
+     window.onload = function(){
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+
+        var img = document.getElementById("img");
+        ctx.drawImage(img,0,0,760,506,0,0,500,500)
+
+     }
+    </script>
+
+</body>
+</html>
