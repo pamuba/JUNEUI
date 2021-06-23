@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{font-family: Verdana, Geneva, Tahoma, sans-serif;}
+    </style>
+    <script>
+        function disable(){
+            alert(event)
+            event.preventDefault();
+            console.log(event)
+        };
+        window.onload = function(){
+            document.getElementById("label").innerHTML = new Date();
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <label id="label"></label><br>
+        <a onclick="disable()" href="https://www.google.com">GO TO GOOGLE</a><br>
+        <button onclick="disable()">CLICK</button>
+    </form>
+</body>
+</html>

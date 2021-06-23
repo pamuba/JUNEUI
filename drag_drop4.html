@@ -85,6 +85,7 @@
                     var reader = new FileReader()
                     reader.onload = (function (aImg) {
                         return function (e) {
+                            // console.log(e)
                             aImg.src = e.target.result;
                         };
                     }(image))
