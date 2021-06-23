@@ -15,14 +15,14 @@
     </style>
     <script>
         function click_handler(){
-            event.stopPropagation();
+            // event.stopPropagation();
             // event.stopImmediatePropagation();
             // console.log(event)
             console.log(event.target)
         }
     </script>
 </head>
-<body>
+<body onclick="click_handler()">
     <div onclick="click_handler()" id="div1" style="height:400px; width:400px; background-color: darkorange;">
         <div onclick="click_handler()" id="div2" style="height:300px; width:300px; background-color: darkmagenta;">
             <div onclick="click_handler()" id="div3" style="height:200px; width:200px; background-color: darkred;">

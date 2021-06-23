@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .center{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .div1{
+            height: 300px;
+            width: 300px;
+            background-color:blueviolet;
+            border:1px solid black;
+        }
+        .div2{
+            height: 200px;
+            width: 200px;
+            background-color:chocolate;
+            border:1px solid black;
+        }
+        .div3{
+            height: 100px;
+            width: 100px;
+            background-color:coral;
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1" class="div1 center">
+        <div id="div2" class="div2 center">
+            <div id="div3" class="div3">
+        
+            </div>
+        </div>
+    </div>
+    <script>
+        div1 = document.getElementById("div1")
+        div2 = document.getElementById("div2")
+        div3 = document.getElementById("div3")
+
+        div1.addEventListener("click", (evt)=>{alert("div1 clicked");evt.stopPropagation();}, true)//true : capturing works, false capturing is turned off
+        div2.addEventListener("click", (evt)=>{alert("div2 clicked")}, true)
+        div3.addEventListener("click", (evt)=>{alert("div3 clicked")}, true)
+    </script>
+</body>
+</html>
