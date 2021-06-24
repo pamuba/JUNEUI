@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const api_url = "https://jsonplaceholder.typicode.com/users";
+        
+        async function getapi(url){
+            const response = await fetch(url)
+            //convert the data to JSON
+            var data = await response.json();
+            console.log(data)
+            if(response){
+
+            }
+            // implement show in table format
+            // show(data);
+        }
+
+        getapi(api_url);
+    </script>
+</body>
+</html>
