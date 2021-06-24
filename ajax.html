@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      let url = "http://127.0.0.1:5500/images/cat.jpg";
+      const loadImage = (url) => {
+          return new Promise(function(resolve, reject){
+              //1.open a new XHR/AJAX
+              var request = new XMLHttpRequest();
+              //2. define the open function
+              request.open("GET", url, true);
+              //3. handle the returned data, by default its XML
+              request.responseType = "arraybuffer"
+              //4. execute
+              request.send();
+
+              // When we have the data
+              request.onload = function(){
+                  if(request.status == 200 && request.readyState == 4){
+                    resolve(request.response)
+                  }else{
+                      reject(Error("Error wile fetching the Image, ERROR CODE:"+request.statusText))
+                  }
+              }
+
+          })
+      }
+
+      const embedImage = url =>{
+          loadImage(url).then(function(result){
+              const img = new Image();
+              var binaryData = [];
+              binaryData.push(result);
+
+              var imageUrl = window.URL.createObjectURL(new Blob(binaryData, {type:'Image/*'}));
+              img.src = imageUrl;
+              document.querySelector('body').appendChild(img)
+          },
+          function(err){
+              console.log(err)
+          });
+      }
+
+      embedImage(url)
+    </script>
+</body>
+</html>

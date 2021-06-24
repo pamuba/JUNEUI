@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    function call(){
+        let r = confirm("Are you show to navigate to Google?");
+        if (r) {
+          window.location.href = "http://google.com";
+        }
+      }
+    </script>
+</head>
+<body>
+    <input type="button" onclick="call()" value="Go to Google" />
+    <a onclick="return call()" href="https://www.google.com">GO TO GOOGLE</a>
+</body>
+</html>
