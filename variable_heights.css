@@ -1,0 +1,17 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.container{
+    font-size: 1.5rem;
+    display: flex;
+}
+.item1{
+    background-color: firebrick;
+    /* float:left;
+    width: 30%; */
+}
+.item2{
+    background-color: blue;
+    /* float:right;
+    width: 70%; */
+}

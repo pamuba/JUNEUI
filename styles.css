@@ -3,37 +3,91 @@ body {
 }
 .container {
     border: 6px solid black;
+    display: flex;
+    
+
+    /* height: 800px;
+    flex-wrap: wrap; */
+    /* align-content: stretch; */
+    /* align-content: flex-start; */
+    /* align-content: flex-end; */
+    /* align-content: space-between; */
+    /* align-content: space-around; */
+
+    /* display: inline-flex; */
+    /* flex-direction: row; */
+    /* flex-direction: row-reverse; */
+    /* flex-direction: column; */
+    /* flex-direction: column-reverse; */
+    /* flex-wrap: nowrap; */
+    /* flex-wrap: wrap; */
+    /* flex-wrap: wrap-reverse; */
+
+    /* height:400px;
+    flex-direction: column;
+    flex-wrap: wrap-reverse; */
+
+    /* flex flow = flex-direction + flex-wrap */
+    /* default row nowrap */
+
+    /* flex-flow: row-reverse wrap; */
+
+    /* height:400px;
+    flex-flow: column-reverse wrap-reverse; */
+
+    /* height: 800px; */
+    /* justify-content: flex-start; */
+    /* justify-content: flex-end; */
+    /* justify-content: center; */
+    /* justify-content: space-between; */
+    /* justify-content: space-around; */
+    /* justify-content: space-evenly; */
+
+    /* align-items: stretch; */
+    /* align-items: flex-start; */
+    /* align-items: flex-end; */
+    /* align-items: baseline; */
 }
 .flex-item {
     color: white;
     font-size: 1.5rem;
     padding: 1rem;
     text-align: center;
+    flex-grow: 1;
 }
 .item-1 {
     background-color: #B4BF35;
+    /* padding-bottom: 3rem; */
 }
 .item-2 {
     background-color: #B95F21;
+    /* padding-bottom: 5rem; */
 }
 .item-3 {
     background-color: #1C4C56;
+    /* font-size: 3rem; */
+    /* order: 1; */
+    /* default order is 0 */
 }
 .item-4 {
     background-color: #CfB276;
 }
 .item-5 {
     background-color: #6B0803;
+    /* flex-grow: 1; */
 }
 .item-6 {
     background-color: #1C4C56;
+    /* flex-grow: 3; */
 }
 .item-7 {
     background-color: #B95F21;
+    /* order:2 */
 }
 .item-8 {
     background-color: #01243A;
 }
 .item-9 {
     background-color: #AAD041;
+    /* order: 1; */
 }
