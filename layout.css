@@ -1,0 +1,48 @@
+*{
+    margin: 2px;
+}
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 25px;
+    color: white;
+    height: 100vh;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+.flex-header{
+    background-color:lightblue;
+    padding-top:3rem;
+    padding-bottom:3rem
+}
+.flex-main{
+    display: flex;
+    flex:1;
+}
+
+.flex-nav{
+    background-color: lightsalmon;
+    padding-top: 3rem;
+    flex:1 1 5rem
+}
+.flex-article{
+    background-color: limegreen;
+    padding-top: 3rem;
+    flex: 3 3;
+}
+.flex-aside{
+    background-color: mediumorchid;
+    padding-top: 3rem;
+    flex:1 1 5rem
+}
+.flex-footer{
+    background-color: mediumorchid;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+@media all and (max-width: 540px){
+    .flex-main{
+        flex-direction: column;
+    }
+}
