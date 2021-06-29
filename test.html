@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p::after{
+            content: "After P Tag";
+            background-color: salmon;
+            color:blue;
+        }
+        div::after{
+            /* content: url(images/google-logo.png); */
+            content: '';
+            background: url(images/google-logo.png) no-repeat;
+            height: 40px;
+            width: 40px;
+            position: absolute;
+            background-size: 30px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body style="font-family: 'Lucida Sans';font-size: 30px;">
+    <p>John Smith</p>
+    <div></div>
+</body>
+</html>

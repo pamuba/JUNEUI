@@ -1,0 +1,17 @@
+.intro    { 
+    height:300px;
+    width:300px;
+    background-color: purple;
+/*     background-color: yellow;  */
+    color: red;
+} 
+
+p.dummy { 
+     background-color: purple;
+} 
+.center {
+    color: red;
+}
+/* .large{
+    color:blue;
+} */
