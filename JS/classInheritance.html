@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class God {
+        hi() {
+          console.log("He is the GOD");
+        }
+      }
+      class Animal extends God {
+        constructor(name, height) {
+          super();
+          this.name = name;
+          this.height = height;
+        }
+        hello() {
+          console.log(`Hello I am ${this.name} from the animal kingdom`);
+        }
+      }
+    //   console.dir(Animal)
+    // let king = new Animal("Lion King", 4.5);
+    // console.log(king)
+    // king.hello();
+    // console.log(king.toString())
+
+    class Lion extends Animal{
+        constructor(name, height, color){
+            super(name, height);
+            this.color = color;
+        }
+        //similar to overriding
+        hello(){
+            console.log("From Child")
+        }
+        callParentHello(){
+            super.hello()
+        }
+    }
+
+    let lion = new Lion("Lion King", 4.5, "golden");
+    lion.hello()
+    lion.callParentHello();
+
+
+    </script>
+  </body>
+</html>

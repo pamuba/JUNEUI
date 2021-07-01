@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>  
+    <style>
+        table, tr, td, th{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+  <div ng-controller="myController">
+    <input type="number" min="0" max="5" step="1" ng-model="rowLimit">  
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Date Of Birth</th>
+                <th>Gender</th>
+                <th>Salary(number)</th>
+                <th>Salary(currency)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="emp in employees | limitTo:rowLimit">
+                <td>{{emp.name | uppercase}}</td>
+                <td>{{emp.dateOfBirth | date:"dd/MM/yyyy"}}</td>
+                <td>{{emp.gender | lowercase}}</td>
+                <td>{{emp.salary | number:2}}</td>
+                <td>{{emp.salary | currency:"£"}}</td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.js"></script>
+  <script src="pipe.js"></script>
+</body>
+</html>
