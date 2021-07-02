@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>  
+</head>
+<body style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+  <div ng-controller="myController">
+    <div ng-repeat="o in emps">
+        <div>{{o.empno}} - {{o.ename}}</div>
+    </div>
+    <button ng-click="addEmp()">Add</button>
+    <button ng-click="modify3rdEmp()">Modify 3rd Employee</button>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.js"></script>
+  <script src="watch2.js"></script>
+</body>
+</html>

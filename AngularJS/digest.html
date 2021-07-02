@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>  
+</head>
+<body style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+  <div ng-controller="myController">
+
+    a = <input ng-model="a" />
+    <div>a = {{a}}</div>
+    <hr>
+
+    
+    b = <input ng-model="b" />
+    <div>b = {{b}}</div>
+    <hr>
+
+    
+    c = <input ng-model="c" />
+    <div>c = {{c}}</div>
+    <hr>
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.js"></script>
+  <script src="digest.js"></script>
+</body>
+</html>

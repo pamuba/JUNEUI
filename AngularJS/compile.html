@@ -5,12 +5,14 @@
 </head>
 <body style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
 
-    <div message text="first">
-        <div message text="second">
-            <div message text="third">
-            </div>
+        <!-- <div style="border:1px solid black" message text="{{i}}" ng-repeat="i in [1,2,3,4,5]">
+            {{i}}
         </div>
+     -->
+     <div message text="{{i}}" ng-repeat="i in [1,2,3,4,5]">
+        {{i}}
     </div>
+
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.js"></script>
   <script src="compile.js"></script>
