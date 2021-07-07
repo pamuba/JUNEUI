@@ -13,6 +13,14 @@ app.config(['$routeProvider', function($routeProvider){
     .when('/', {
         template:"<b>This is the HOME message</b>"
     })
+    .otherwise({
+        redirectTo:function(){
+            alert("No Content")
+            return "/second-msg"
+        }
+        // redirectTo:"/second-msg"
+        // template:"<b>No Content Here. Plz click on the links</b>"
+    })
 }]);
 
 app.controller('message1', function($scope){
