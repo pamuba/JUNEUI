@@ -22,6 +22,12 @@ var server = http.createServer(function(req, res){
         res.writeHead(200, {'Content-Type':'text/css'});
         fileStream.pipe(res)
     }
+    else if(req.url.match('\.jpg$')){
+        var imagePath = path.join(__dirname,'public', req.url);
+        var fileStream = fs.createReadStream(imagePath);
+        res.writeHead(200, {'Content-Type':'image/jpg'});
+        fileStream.pipe(res)
+    }
     else{
         res.writeHead(404, {'Content-Type':'text/text'});
         res.end("No Page Found")
