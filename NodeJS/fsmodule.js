@@ -70,3 +70,44 @@ var fs = require('fs');
 // })
 
 ///////////////delete files/////////////////////
+// fs.unlink('new.txt', (err)=>{
+//     if(err){}
+//     else{}
+// })
+
+/////////copy a file////////////////////
+
+// var source = "data.txt"
+// var destination = "copy.txt"
+
+// fs.copyFile(source, destination, (err)=>{
+//     if(err){}
+//     else{}
+// })
+
+/////////copy a folder/////////////////////////
+// var path = require('path')
+
+// var source = "folderA"
+// var destination = "folderB"
+
+// function copyFolder(from, to){
+//     fs.mkdirSync(to);
+//     fs.readdirSync(from).forEach(file=>{
+//         fs.copyFileSync(path.join(from,file),path.join(to, file));
+//     })
+
+// }
+// copyFolder(source, destination)
+
+///////////////truncate a file///////////////////////////////
+// fs.truncate('data1.txt', 4, (err)=>{
+//     if(err){}
+// })
+
+//////////////delete a folder/////////////
+fs.rmdir('folderA', {recursive:true}, (err)=>{
+    if(err){
+        console.log(err.message)
+    }
+})
