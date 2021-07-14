@@ -1,0 +1,23 @@
+npm i gulp-cli -g //once
+npm i gulp -g  //once
+
+npm i gulp
+npm i gulp-jshint
+npm i jshint
+
+//run a task
+gulp task_jshint
+//show all tasks
+gulp --tasks
+
+//run default task
+gulp
+
+
+npm i gulp-rename
+npm i gulp-clean-css
+npm i gulp-sass@4.1.0
+
+npm i gulp-sourcemaps
+npm i gulp-autoprefixer
+npm i gulp-imagemin

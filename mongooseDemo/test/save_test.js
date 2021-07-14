@@ -3,13 +3,15 @@ const MarioChar = require('../models/marioChar');
 const assert = require('assert');
 
 //test suite--gr related tests
-xdescribe("Saving Records", function(){
+describe("Saving Records", function(){
+
     it('Saves a new record to the database', function(){
         var char = new MarioChar({
             name:"John"
         });
-        char.save().then(function(){
-            assert(john.isNew === false)
+        char.save().then(function(done){
+            assert(john.isNew === false);
+            done();
         })
     })
     xit('Dummy', function(){

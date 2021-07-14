@@ -1,0 +1,6 @@
+body {
+  background: #ccc;
+  color: red; }
+
+a {
+  transition: all 300ms ease; }
