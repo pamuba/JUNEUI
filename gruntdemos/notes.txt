@@ -1,0 +1,20 @@
+Setting Up Grunt:
+1. npm i grunt-cli -g
+   npm init -y
+2. npm i grunt locally
+3. create the grunt file
+4. install the plugins
+
+
+Configuring the grunt file
+-create the tasks
+-load the plugins(npm packages)
+-register task to run
+
+
+npm i grunt-contrib-concat
+npm i grunt-contrib-uglify
+npm i grunt-contrib-cssmin
+npm i grunt-sass 
+//grunt-sass has a dependency
+npm i node-sass

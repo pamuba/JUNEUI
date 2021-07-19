@@ -1,11 +1,17 @@
-var gulp = require('gulp')
-var jshint = require('gulp-jshint')
-var cleanCSS = require('gulp-clean-css')
-var rename = require('gulp-rename')
-var sass = require('gulp-sass')
-var autoprefixer = require('gulp-autoprefixer')
-var sourcemaps = require('gulp-sourcemaps')
+const gulp = require('gulp')
+const jshint = require('gulp-jshint')
+const cleanCSS = require('gulp-clean-css')
+const rename = require('gulp-rename')
+const sass = require('gulp-sass')
+const autoprefixer = require('gulp-autoprefixer')
+const sourcemaps = require('gulp-sourcemaps')
 const imagemin = require('gulp-imagemin')
+const browserify = require('browserify')
+const babelify = require('babelify')
+const source = require('vinyl-source-stream')
+const buffer = require('vinyl-buffer')
+const uglify = require('gulp-uglify')
+
 
 
 //gulp-jshint
@@ -47,18 +53,18 @@ const imagemin = require('gulp-imagemin')
 //////////////////////////////////////////////////////////////////
 //sass compile + minify + rename
 //gulp-sass
-// var styleSRC = './src/scss/style.scss'
-// var styleDEST = './dist/css'
+var styleSRC = './src/scss/style.scss'
+var styleDEST = './dist/css'
 
-// gulp.task("styles", function(done){
-//     gulp.src(styleSRC)
-//         .pipe(sass({
-//             outputStyle:'compressed'
-//         }))
-//         .pipe(rename({suffix:'.min'}))
-//         .pipe(gulp.dest(styleDEST));
-//     done();
-// })
+gulp.task("styles", function(done){
+    gulp.src(styleSRC)
+        .pipe(sass({
+            outputStyle:'compressed'
+        }))
+        .pipe(rename({suffix:'.min'}))
+        .pipe(gulp.dest(styleDEST));
+    done();
+})
 
 //////////////////////////////////////////////////////////////////////
 ///generate the css from scss in the src folder
@@ -126,3 +132,53 @@ const imagemin = require('gulp-imagemin')
 //         .pipe(gulp.dest(imgDest));
 //     done();
 // })
+
+////////////////////////////////////////////////////////////////
+jsDIST = './dist/js/'
+jsFolder = './src/js/'
+jsSRC = 'script.js'
+
+var jsFiles = [jsSRC]
+
+gulp.task('js', function(done){
+
+    jsFiles.map(function(entry){
+        return browserify({
+            entries:[jsFolder+entry]
+        })
+        .transform(babelify, {presets:['env']})
+        .bundle()
+        .pipe(source( entry ))
+        .pipe(rename({extname:'.min.js'}))
+        .pipe( buffer() )
+        .pipe( sourcemaps.init({loadMaps:true}))
+        .pipe(uglify())
+        .pipe( sourcemaps.write('./'))
+        .pipe( gulp.dest(jsDIST))
+    });
+    done();
+    //Browserify
+    //transform(babelify)
+    //bundle
+    //rename
+    //buffer
+    //init sourcemaps
+    //uglify
+    //write sourcemaps
+    //dist
+
+})
+
+//////////////watch mode/////////////////////////
+var styleWatch = './src/scss/**/*.scss'
+var jsWatch = './src/js/**/*.js'
+
+// gulp.task('watch', function(){
+//     gulp.watch(styleWatch, gulp.series('styles'))
+//     gulp.watch(jsWatch, gulp.series('js'))
+// })
+
+gulp.task('watch', function(){
+    gulp.watch(styleWatch, gulp.parallel('styles'))
+    gulp.watch(jsWatch, gulp.parallel('js'))
+})
