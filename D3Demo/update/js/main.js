@@ -56,7 +56,8 @@ d3.csv("data/revenues.csv").then(data => {
 
   d3.interval(() => {
     flag = !flag;
-    update(data)
+    const newData = flag ? data : data.slice(1);
+    update(newData)
   }, 1000)
 
   update(data)
@@ -64,6 +65,7 @@ d3.csv("data/revenues.csv").then(data => {
 
 function update(data){
   const value = flag ? "profit" : "revenue";
+  const t = d3.transition().duration(750);
 
   x.domain(data.map(d => d.month))
   y.domain([0, d3.max(data, d => d[value])])
@@ -71,7 +73,7 @@ function update(data){
 
 
   const xAxisCall = d3.axisBottom(x)
-  xAxisGroup
+  xAxisGroup.transition(t)
     .call(xAxisCall)
     .selectAll("text")
       .attr("y", "10")
@@ -82,30 +84,40 @@ function update(data){
   const yAxisCall = d3.axisLeft(y)
     .ticks(3)
     .tickFormat(d => d + "m")
-    yAxisGroup
+    yAxisGroup.transition(t)
     .call(yAxisCall)
 
   //DATA JOIN, join in new elements
-  const rects = g.selectAll("rect")
-    .data(data)
+  const rects = g.selectAll("circle")
+    .data(data, d => d.month)
 
   //EXIT old elements not present in the new data
-  rects.exit().remove();
+  rects.exit()
+    .attr("fill", "red")
+    .transition(t)
+      // .attr("height",0)
+      .attr("cy", y(0))
+      .remove();
 
   //UPDATE old elements present in the new data
-  rects
-    .attr("y", d => y(d[value]))
-    .attr("x", (d) => x(d.month))
-    .attr("width", x.bandwidth)
-    .attr("height", d => HEIGHT - y(d[value]))
+  // rects.transition(t)
+  //   .attr("y", d => y(d[value]))
+  //   .attr("x", (d) => x(d.month))
+  //   .attr("width", x.bandwidth)
+  //   .attr("height", d => HEIGHT - y(d[value]))
 
   //ENTER new elements present in the new data
-  rects.enter().append("rect")
-    .attr("y", d => y(d[value]))
-    .attr("x", (d) => x(d.month))
-    .attr("width", x.bandwidth)
-    .attr("height", d => HEIGHT - y(d[value]))
+  rects.enter().append("circle")
     .attr("fill", "grey")
+    .attr("cy",y(0))
+    // .attr("height",0)
+    .attr("r",5)
+    .merge(rects) //before -- enter  after --- enter + update
+    .transition(t)
+      .attr("cy", d => y(d[value]))
+      // .attr("height", d => HEIGHT - y(d[value]))
+      .attr("cx", (d) => x(d.month) + (x.bandwidth() / 2))
+      // .attr("width", x.bandwidth)
 
     const text = flag ? "Profit ($)" : "Revenue ($)";
     yLabel.text(text);
