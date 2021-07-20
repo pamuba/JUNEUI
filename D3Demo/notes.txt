@@ -1,0 +1,16 @@
+1. Data Join - select all matching elements on the screen
+with selectAll, and update the data that we are using
+
+  const rects = g.selectAll("rect")
+    .data(data)
+
+2. //EXIT
+remove old elements as needed
+.exit().remove()
+
+3.//update
+//update old elements as needed
+
+
+4. //Enter
+//create new elements as needed
