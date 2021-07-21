@@ -1,0 +1,21 @@
+//Matchers
+1. toBe (===)
+2. toEqual()
+
+{total, 0}
+{key, value}
+
+3.toBeTruthy, toBeFalsy
+4. negative matchers
+5. toBeDefined toBeUndefined
+
+    Datatypes in JS
+    1. Global property
+    2. Primitive
+    3. //
+
+    undefined 
+
+6. toContain
+7. toThrow
+8. toThrowError
