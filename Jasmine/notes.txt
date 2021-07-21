@@ -21,3 +21,15 @@
 8. toThrowError
 9. toMatch(regular expression)
 10. jasmine.anything()
+
+Test Double(stunt men/women): It is an object that can stand in for a real object in a test.
+
+Jasmine has test doubles functions called spies
+
+These spies can stub any function and tracks call to it and all arguments
+
+spy exists in the describe or it blocks and will be removed after each spec
+
+//toHaveBeenCalled
+//toHaveBeenCalledWith
+//toHaveBeenCalledTimes
