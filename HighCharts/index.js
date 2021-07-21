@@ -10,10 +10,18 @@ document.addEventListener('DOMContentLoaded', ()=>{
         },
         colors:['blue', 'orange', 'yellow', 'red'],
         tooltip:{
-            formatter(){
-                return `<b>X value</b> - ${this.x} <b>Y value</b> ${this.y}`
-            },
+            // formatter(){
+            //     return `<b>X value</b> - ${this.x} <b>Y value</b> ${this.y}`
+            // },
             // animation:false
+            formatter(){
+                let s = `<b>X is:</b> - ${this.x}`;
+                this.points.forEach(function(point){
+                    s += `<br><b>Y is:</b>${point.y}`
+                })
+                return s;
+            },
+            shared:true,
             backgroundColor : '#333333',
             borderColor:'#f01f11',
             borderRadius:20,
