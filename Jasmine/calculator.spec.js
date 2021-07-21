@@ -64,5 +64,23 @@ describe('calculator.js', function(){
         calculator.total = 20;
         calculator.multiply('a')
         expect(calculator.total).toBeNaN();
+    });
+    it('handles divide by 0', function(){
+        const calculator = new Calculator();
+        calculator.total = 10;
+        expect(function(){calculator.divide(0)}).toThrow()
+        expect(function(){calculator.divide(0)}).toThrowError(Error)
+        expect(function(){calculator.divide(0)}).toThrowError(Error, 'Cannot divide by zero')
+    });
+    it('return total', function(){
+        const calculator = new Calculator();
+        calculator.total = 50
+
+        expect(calculator.add(20)).toBe(70);
+        //will pass if it matches sub part
+        expect(calculator.total).toMatch(/-?\d/)
+        expect(typeof calculator.total).toMatch('number')
+        expect(12).toEqual(jasmine.anything())
     })
+
 })
