@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <head>
+        <!-- Step 1 - Including AngularJS -->
+        <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+        <!-- Step 2 - Including the fusioncharts core library -->
+        <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+        <!-- Step 3 - Including the angularjs-fusioncharts directive-->
+        <script type="text/javascript" src="angular-fusioncharts.js"></script>
+        <!-- Step 4 - Including the fusion theme -->
+        <script type="text/javascript"
+            src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+        <title>Document</title>
+    </head>
+</head>
+
+<body ng-app="fusioncharts-demo">
+    <div ng-controller="ex1Controller">
+        <fusioncharts dataformat="xmlurl" datasource="data/data.xml" type="column2d" width="600" height="400"></fusioncharts>
+    </div>
+    <script>
+        window.app = angular.module('fusioncharts-demo', ['ng-fusioncharts']);
+
+        app.controller('ex1Controller', function ($scope, $rootScope) {
+           
+        });
+
+    </script>
+</body>
+
+</html>

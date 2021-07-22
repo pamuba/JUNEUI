@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+     <!-- Step 1 - Including AngularJS -->
+     <script type="text/javascript"
+     src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+    <!-- Step 2 - Including the fusioncharts core library -->
+    <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+    <!-- Step 3 - Including the angularjs-fusioncharts directive-->
+    <script type="text/javascript" src="angular-fusioncharts.js"></script>
+    <!-- Step 4 - Including the fusion theme -->
+    <script type="text/javascript"
+        src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+    <title>Document</title>
+</head>
+<body ng-app="fusioncharts-demo">
+    <div ng-controller='MyController'>
+        <div fusioncharts width="600" height="400" type="column2d" datasource={{dataSource}}></div>
+        <p><a href="#" class="btn btn-primary" ng-click="updateChartData()">Click me to change</a></p>
+    </div>
+
+    <script>
+          window.app = angular.module('fusioncharts-demo',['ng-fusioncharts']);
+          app.controller('MyController', function($scope){
+              $scope.dataSource={
+                  chart:{
+                      caption:"Harrys Supermart",
+                      subcaption:"Top 5 soters last month by revenue",
+                      numberPrefix:"$",
+                      theme:'ocean'
+                  },
+                  data: [{
+                    label: "Bakersfield Central",
+                    value: "880000"
+                },
+                {
+                    label: "Garden Groove harbour",
+                    value: "730000"
+                },
+                {
+                    label: "Los Angeles Topanga",
+                    value: "590000"
+                },
+                {
+                    label: "Compton-Rancho Dom",
+                    value: "520000"
+                },
+                {
+                    label: "Daly City Serramonte",
+                    value: "330000"
+                }]
+              };
+
+              $scope.updateChartData = function(){
+                 $scope.dataSource.data[2].label = "This is the first Updated Label";
+                 $scope.dataSource.data[2].value = "210000"
+
+                 $scope.dataSource.data[3].label = "This is the second Updated Label";
+                 $scope.dataSource.data[3].value = "420000"
+              }
+          })
+    </script>
+</body>
+</html>
